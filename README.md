@@ -7,4 +7,4 @@ FastAPI project for car sales classification using multiple ML models (KNN, Logi
 git clone https://github.com/Yousef-salah-Ma/car_bmw_sales_classifier.git
 cd car_bmw_sales_classifier
 pip install -r requirements.txt
-uvicorn main:app --reload
+uvicorn app:app --reload
