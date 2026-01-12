@@ -1,0 +1,9 @@
+pandas
+numpy
+plotly
+scikit-learn
+imbalanced-learn
+xgboost
+catboost
+lightgbm
+category_encoders
