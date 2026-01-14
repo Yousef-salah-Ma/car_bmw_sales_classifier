@@ -18,11 +18,17 @@ st.write("Exploratory Data Analysis + Prediction (No Model Training)")
 # =============================
 # Load Data
 # =============================
-@st.cache_data
-def load_data():
-    return pd.read_csv("cleaning_data.csv")
+@st.cache_resource
+def load_model_safe():
+    import joblib
+    try:
+        return joblib.load("module_SVC.pkl")
+    except Exception as e:
+        st.warning("Model not loaded. Using dummy predictions.")
+        st.error(e)
+        return None
 
-df = load_data()
+model = load_model_safe()
 
 # =============================
 # Load Model
@@ -135,4 +141,5 @@ elif page == "Prediction":
         st.success(f"📌 Predicted Sales Classification: **{label}**")
         st.write("### Prediction Probability")
         st.bar_chart(pd.DataFrame(proba, columns=["High", "Low"]))
+
 
