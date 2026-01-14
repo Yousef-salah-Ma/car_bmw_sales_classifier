@@ -7,3 +7,5 @@ xgboost
 catboost
 lightgbm
 category_encoders
+joblib
+streamlit
