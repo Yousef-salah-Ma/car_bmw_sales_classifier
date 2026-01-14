@@ -1,11 +1,11 @@
-pandas
-numpy
-plotly
-scikit-learn
 imbalanced-learn
 xgboost
 catboost
 lightgbm
 category_encoders
-joblib
-streamlit
+streamlit==1.32.2
+scikit-learn==1.3.2
+joblib==1.3.2
+numpy==1.26.4
+pandas==2.1.4
+plotly==5.18.0
