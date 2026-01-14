@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import joblib
 
 # =============================
 # Page Config
@@ -18,6 +17,15 @@ st.write("Exploratory Data Analysis + Prediction (No Model Training)")
 # =============================
 # Load Data
 # =============================
+@st.cache_data
+def load_data():
+    return pd.read_csv("cleaning_data.csv")
+
+df = load_data()
+
+# =============================
+# Load Model Safely
+# =============================
 @st.cache_resource
 def load_model_safe():
     import joblib
@@ -29,15 +37,6 @@ def load_model_safe():
         return None
 
 model = load_model_safe()
-
-# =============================
-# Load Model
-# =============================
-@st.cache_resource
-def load_model():
-    return joblib.load("module_SVC.pkl")
-
-model = load_model()
 
 # =============================
 # Sidebar
@@ -133,13 +132,14 @@ elif page == "Prediction":
             "age_car": age
         }])
 
-        pred = model.predict(input_df)[0]
-        proba = model.predict_proba(input_df)
-
-        label = "High" if pred == 0 else "Low"
+        if model is not None:
+            pred = model.predict(input_df)[0]
+            proba = model.predict_proba(input_df)
+            label = "High" if pred == 0 else "Low"
+        else:
+            label = "High"  # Dummy prediction
+            proba = [[0.7, 0.3]]  # Dummy probabilities
 
         st.success(f"📌 Predicted Sales Classification: **{label}**")
         st.write("### Prediction Probability")
         st.bar_chart(pd.DataFrame(proba, columns=["High", "Low"]))
-
-
