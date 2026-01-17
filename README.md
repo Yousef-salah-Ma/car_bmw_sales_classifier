@@ -1,7 +1,7 @@
 README
 Car BMW Sales Classifier
 FastAPI project for classifying BMW car sales into categories (High / Low) using multiple ML models: KNN, Logistic Regression, SVC, and others.
-
+Streamlit: https://carbmwsalesclassifier-kjpatd82mpfb5f6gjhkdrl.streamlit.app/
 Features
 Preprocessing with ColumnTransformer (numeric scaling, OneHotEncoding, BinaryEncoding)
 Handling class imbalance using SMOTE
