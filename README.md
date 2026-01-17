@@ -5,7 +5,7 @@ FastAPI project for classifying BMW car sales into categories (High / Low) using
 
 Demo (Streamlit): [Link](https://carbmwsalesclassifier-kjpatd82mpfb5f6gjhkdrl.streamlit.app/)
 
-Video Overview: https://drive.google.com/file/d/1Ikt-526I5JWFjsdeCitL9aGsJpG0qGTT/view
+Video Overview: [Link](https://drive.google.com/file/d/1Ikt-526I5JWFjsdeCitL9aGsJpG0qGTT/view)
 Preprocessing with ColumnTransformer (numeric scaling, OneHotEncoding, BinaryEncoding)
 Handling class imbalance using SMOTE
 Trained ML pipelines saved with joblib
